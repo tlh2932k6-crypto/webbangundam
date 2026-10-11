@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MECHA CORE | Vũ Trụ Mô Hình Gundam & Gunpla Store Việt Nam</title>
+  <meta name="description" content="Cửa hàng mô hình Gunpla chính hãng Bandai hàng đầu Việt Nam: SD, HG, RG, MG, PG, Metal Build, Kìm cắt GodHand và phụ kiện sơn độ Mecha chuyên nghiệp.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+<body>
+
+  <!-- ==================== HEADER & TOP BAR ==================== -->
+  <header class="header">
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <div class="top-bar-alerts">
+          <span><span class="status-dot"></span> MECHA CORE ONLINE // HỆ THỐNG MÁY CHỦ SẴN SÀNG</span>
+          <span style="display: none;" class="desktop-only">🚀 Miễn phí vận chuyển toàn quốc cho đơn hàng từ 500.000đ</span>
+        </div>
+        <div class="top-bar-controls">
+          <span>HOTLINE: <strong>1900-GUNDAM</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container navbar">
+      <!-- Brand Logo -->
+      <a href="#home" class="logo">
+        <div class="logo-icon mecha-cut">⚡</div>
+        <div class="logo-text">
+          <span class="brand-name">MECHA<span>CORE</span></span>
+          <span class="brand-tagline">GUNPLA UNIVERSE</span>
+        </div>
+      </a>
+
+      <!-- Search Bar with Live Autocomplete -->
+      <div class="nav-search">
+        <div class="search-input-wrap">
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input mecha-cut" 
+            placeholder="Tìm theo tên Gunpla (RX-78-2, Barbatos, Calibarn...)" 
+            autocomplete="off"
+          />
+          <button class="search-btn" title="Tìm kiếm">🔍</button>
+        </div>
+        <div id="searchAutocomplete" class="search-autocomplete mecha-cut"></div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <ul class="nav-menu">
+        <li><a href="#catalog" class="nav-link">Sản Phẩm</a></li>
+        <li><a href="#scale-section" class="nav-link">So Sánh Grade</a></li>
+        <li><a href="#academy-section" class="nav-link">Gunpla Academy</a></li>
+        <li><a href="#" id="trackOrderNavBtn" class="nav-link">Tra Cứu Đơn</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button class="action-btn mecha-cut" title="Danh sách yêu thích" onclick="location.href='#catalog'">
+          <span>🤍</span>
+          <span id="wishlistCountBadge" class="badge-count">0</span>
+        </button>
+
+        <button id="cartToggleBtn" class="action-btn mecha-cut" title="Giỏ hàng">
+          <span>🛒</span>
+          <span class="cart-count-badge badge-count">0</span>
+        </button>
+
+        <!-- Auth Button -->
+        <div class="auth-nav-wrap" id="authNavWrap">
+          <!-- Hiển thị khi chưa đăng nhập -->
+          <button id="loginNavBtn" class="btn btn-secondary mecha-cut auth-nav-btn" onclick="openAuthModal('login')" title="Đăng nhập">
+            🤖 Đăng Nhập
+          </button>
+          <!-- Hiển thị khi đã đăng nhập -->
+          <div id="userNavMenu" class="user-nav-menu" style="display:none;">
+            <button class="user-nav-trigger mecha-cut" onclick="toggleUserDropdown()">
+              <img id="userNavAvatar" src="" alt="Avatar" class="user-nav-avatar" />
+              <span id="userNavName"></span>
+              <span class="user-nav-caret">▾</span>
+            </button>
+            <div id="userDropdown" class="user-dropdown mecha-cut" style="display:none;">
+              <div class="user-dropdown-header">
+                <div id="userDropdownRole" class="user-role-badge"></div>
+              </div>
+              <button class="dropdown-item" onclick="openAccountDashboard()">
+                📋 Tài Khoản & Đơn Hàng
+              </button>
+              <button class="dropdown-item" onclick="logoutUser()">
+                🚪 Đăng Xuất
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SHOWCASE SECTION ==================== -->
+  <section id="home" class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-tag mecha-cut">
+          <span>🛡️</span> BANDAI SPIRITS & MOTOR NUCLEAR CHÍNH HÃNG 100%
+        </div>
+        <h1 class="hero-title">
+          VŨ TRỤ GUNPLA ĐỈNH CAO <br>
+          <span class="highlight">MECHA CHIẾN ĐẤU</span>
+        </h1>
+        <p class="hero-desc">
+          Khám phá hàng trăm mô hình Gunpla huyền thoại và Tinh Giáp Hồn Tướng sắc sảo từ SD chibi, High Grade, Real Grade đến Perfect Grade & Metal Build nguyên khối. Nâng tầm không gian trưng bày của bạn với kiệt tác công nghệ chế tác mô hình đỉnh cao.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-box mecha-cut">
+            <div class="stat-value">500+</div>
+            <div class="stat-label">Mẫu Kit Sẵn Hàng</div>
+          </div>
+          <div class="stat-box mecha-cut">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Chính Hãng Uy Tín</div>
+          </div>
+          <div class="stat-box mecha-cut">
+            <div class="stat-value">2 Giờ</div>
+            <div class="stat-label">Giao Nhanh Nội Thành</div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#catalog" class="btn btn-primary mecha-cut">
+            🚀 Khám Phá Cửa Hàng
+          </a>
+          <a href="#scale-section" class="btn btn-secondary mecha-cut">
+            📐 So Sánh Kích Thước
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GRADE QUICK NAVIGATION ==================== -->
+  <nav class="grade-nav">
+    <div class="container">
+      <div class="grade-scroll">
+        <button class="grade-btn active mecha-cut" data-grade="ALL">
+          <span class="grade-dot"></span> TẤT CẢ MẪU
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="PG">
+          <span class="grade-dot" style="background: #bf00ff;"></span> PERFECT GRADE (1/60)
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="MG">
+          <span class="grade-dot" style="background: #00ff88;"></span> MASTER GRADE (1/100)
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="RG">
+          <span class="grade-dot" style="background: #ffaa00;"></span> REAL GRADE (1/144)
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="HG">
+          <span class="grade-dot" style="background: #00f0ff;"></span> HIGH GRADE (1/144)
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="SD">
+          <span class="grade-dot" style="background: #ff007f;"></span> SD GUNDAM (CHIBI)
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="Metal Build">
+          <span class="grade-dot" style="background: #ff3366;"></span> METAL BUILD (DIE-CAST)
+        </button>
+        <button class="grade-btn mecha-cut" data-grade="Tools">
+          <span class="grade-dot" style="background: #ffffff;"></span> KÌM CẮT & DỤNG CỤ
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== STORE SECTION (SIDEBAR + CATALOG) ==================== -->
+  <section id="catalog" class="store-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">KHO VŨ KHÍ GUNDAM & GUNPLA</h2>
+        <div class="product-count" id="productCount">Hiển thị mô hình</div>
+      </div>
+
+      <div class="store-grid">
+        <!-- Sidebar Filter -->
+        <aside class="sidebar mecha-cut mecha-border">
+          <!-- Filter: Anime Series -->
+          <div class="filter-group">
+            <h4 class="filter-title">DÒNG ANIME (SERIES)</h4>
+            <select id="filterSeries" class="sort-select" style="width: 100%;">
+              <option value="ALL">Tất cả vũ trụ Gundam</option>
+              <option value="Tinh Giáp Hồn Tướng">Tinh Giáp Hồn Tướng (Motor Nuclear)</option>
+              <option value="Universal Century">Universal Century (UC)</option>
+              <option value="Gundam SEED Destiny">Gundam SEED & Destiny</option>
+              <option value="Witch from Mercury">Witch from Mercury (Suletta)</option>
+              <option value="Iron-Blooded Orphans">Iron-Blooded Orphans (IBO)</option>
+              <option value="Gundam 00">Gundam 00 (Celestial Being)</option>
+              <option value="Gundam Wing">Gundam Wing (Endless Waltz)</option>
+              <option value="Mobile Fighter G Gundam">Mobile Fighter G Gundam</option>
+              <option value="Dụng cụ lắp ráp">Dụng cụ & Phụ kiện</option>
+            </select>
+          </div>
+
+          <!-- Filter: Price Range -->
+          <div class="filter-group">
+            <h4 class="filter-title">TẦM GIÁ (VNĐ)</h4>
+            <select id="filterPrice" class="sort-select" style="width: 100%;">
+              <option value="ALL">Tất cả mức giá</option>
+              <option value="100k-500k">100k tới 500k</option>
+              <option value="500k-1m">500k tới 1Tr</option>
+              <option value="1m-2m">1tr tới 2tr</option>
+              <option value="2m-3m">2tr tới 3tr</option>
+              <option value="3m-4m">3tr tới 4tr</option>
+              <option value="4m-5m">4tr tới 5tr</option>
+              <option value="5m-10m">5tr tới 10tr</option>
+            </select>
+          </div>
+
+          <!-- Quick Promo Codes Box -->
+          <div class="filter-group">
+            <h4 class="filter-title">MÃ GIẢM GIÁ HOT</h4>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem;">
+              <div style="background: rgba(0,240,255,0.08); border: 1px dashed var(--cyan); padding: 8px; color: var(--cyan); cursor: pointer;" onclick="document.getElementById('couponInput').value='GUNDAM10'; showToast('Đã sao chép mã GUNDAM10! Vào giỏ hàng áp dụng nhé.', 'info');">
+                🎁 <strong>GUNDAM10</strong> - Giảm 10% đơn từ 500k
+              </div>
+              <div style="background: rgba(0,255,136,0.08); border: 1px dashed var(--green); padding: 8px; color: var(--green); cursor: pointer;" onclick="document.getElementById('couponInput').value='FREESHIP'; showToast('Đã sao chép mã FREESHIP!', 'info');">
+                🚚 <strong>FREESHIP</strong> - Miễn phí ship từ 300k
+              </div>
+              <div style="background: rgba(255,183,0,0.08); border: 1px dashed var(--gold); padding: 8px; color: var(--gold); cursor: pointer;" onclick="document.getElementById('couponInput').value='BUILDER50K'; showToast('Đã sao chép mã BUILDER50K!', 'info');">
+                ⚡ <strong>BUILDER50K</strong> - Giảm 50.000₫ đơn từ 400k
+              </div>
+            </div>
+          </div>
+
+          <button id="resetFiltersBtn" class="reset-filter-btn mecha-cut">
+            🔄 THIẾT LẬP LẠI BỘ LỌC
+          </button>
+        </aside>
+
+        <!-- Product Catalog Area -->
+        <main>
+          <div class="catalog-toolbar mecha-cut">
+            <div style="font-size: 0.88rem; color: var(--text-dim);">
+              Sắp xếp theo tiêu chí:
+            </div>
+            <div class="toolbar-actions">
+              <select id="sortSelect" class="sort-select mecha-cut">
+                <option value="popular">Bán chạy & Phổ biến nhất</option>
+                <option value="price_asc">Giá từ thấp đến cao</option>
+                <option value="price_desc">Giá từ cao xuống thấp</option>
+                <option value="rating">Đánh giá 5 sao cao nhất</option>
+                <option value="newest">Hàng mới về</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Grid List -->
+          <div id="productsGrid" class="products-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GRADE SCALE COMPARISON SECTION ==================== -->
+  <section id="scale-section" class="scale-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">BẢNG SO SÁNH KÍCH THƯỚC & CẤP ĐỘ GUNPLA</h2>
+      </div>
+      <p style="color: var(--text-dim); max-width: 800px; margin-bottom: 20px;">
+        Chưa biết nên chọn dòng mô hình nào? Dưới đây là bảng trực quan hóa kích thước, độ chi tiết khung xương, số lượng vỉ runner và thời gian hoàn thiện của từng phân cấp Bandai.
+      </p>
+
+      <div id="scaleVisualizerGrid" class="scale-visualizer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GUNPLA ACADEMY (BUILDER GUIDE) ==================== -->
+  <section id="academy-section" class="academy-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">GUNPLA ACADEMY // CẨM NANG BUILDER</h2>
+      </div>
+      <p style="color: var(--text-dim); max-width: 800px;">
+        Những kỹ thuật căn bản từ các Master Builder giúp bạn lắp ráp mô hình không để lại ghẻ nhựa, kẻ lằn chìm sắc nét và bảo quản bền đẹp theo năm tháng.
+      </p>
+
+      <div id="academyGrid" class="academy-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="margin-bottom: 14px;">
+            <div class="logo-icon mecha-cut">⚡</div>
+            <div class="logo-text">
+              <span class="brand-name">MECHA<span>CORE</span></span>
+              <span class="brand-tagline">GUNPLA UNIVERSE</span>
+            </div>
+          </div>
+          <p style="color: var(--text-dim); font-size: 0.85rem; line-height: 1.6;">
+            Hệ sinh thái mô hình Gundam cao cấp số 1 Việt Nam. Cam kết 100% sản phẩm Bandai Spirits chính hãng, bảo hiểm đổi trả part nếu lỗi đúc nhà sản xuất.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>PHÂN CẤP GUNPLA</h4>
+          <ul>
+            <li><a href="#catalog" onclick="document.querySelector('[data-grade=PG]').click()">Perfect Grade (1/60)</a></li>
+            <li><a href="#catalog" onclick="document.querySelector('[data-grade=MG]').click()">Master Grade (1/100)</a></li>
+            <li><a href="#catalog" onclick="document.querySelector('[data-grade=RG]').click()">Real Grade (1/144)</a></li>
+            <li><a href="#catalog" onclick="document.querySelector('[data-grade=HG]').click()">High Grade (1/144)</a></li>
+            <li><a href="#catalog" onclick="document.querySelector('[data-grade=SD]').click()">SD Gundam</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>DỊCH VỤ & HỖ TRỢ</h4>
+          <ul>
+            <li><a href="#academy-section">Cẩm nang hướng dẫn lắp ráp</a></li>
+            <li><a href="#" onclick="openTrackModal()">Tra cứu vận đơn giao hàng</a></li>
+            <li><a href="#">Chính sách bảo hành part gãy</a></li>
+            <li><a href="#">Phương thức thanh toán VietQR</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+          <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 12px;">
+            🏢 Showroom: Lâm Hiếu Plaza, Quận Cầu Giấy, TP. Hà Nội <br>
+            📞 Hotline: 1900-GUNDAM (8:30 - 22:00) <br>
+            ✉️ Email: support@mechacore.vn
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MECHA CORE STORE. All Rights Reserved. Gundam & Gunpla are registered trademarks of Bandai Namco.</div>
+        <div style="color: var(--cyan); font-family: var(--font-tech);">DESIGNED FOR PRO BUILDERS</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CART DRAWER ==================== -->
+  <div id="cartOverlay" class="modal-overlay"></div>
+  <aside id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <div class="cart-title">
+        <span>🛒 GIỎ HÀNG</span>
+        <span class="cart-count-badge badge-count">0</span>
+      </div>
+      <button id="cartCloseBtn" class="modal-close" style="position: static;">✕</button>
+    </div>
+
+    <div id="cartItemsContainer" class="cart-items-wrap">
+      <!-- Items dynamically added -->
+    </div>
+
+    <div class="cart-footer">
+      <div class="coupon-box">
+        <input type="text" id="couponInput" class="coupon-input mecha-cut" placeholder="Nhập mã voucher (vd: GUNDAM10)" />
+        <button id="applyCouponBtn" class="btn btn-secondary mecha-cut" style="padding: 8px 14px;">Áp Dụng</button>
+      </div>
+
+      <div class="cart-summary-row">
+        <span>Tạm tính:</span>
+        <span id="cartSubtotal">0₫</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Giảm giá voucher:</span>
+        <span id="cartDiscount" style="color: var(--green);">0₫</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Phí vận chuyển:</span>
+        <span id="cartShipping">0₫</span>
+      </div>
+
+      <div class="cart-total-row">
+        <span>Tổng thanh toán:</span>
+        <strong id="cartTotal">0₫</strong>
+      </div>
+
+      <button id="checkoutBtn" class="btn btn-primary mecha-cut" style="width: 100%; margin-top: 14px; justify-content: center;">
+        ⚡ TIẾN HÀNH ĐẶT HÀNG
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== PRODUCT DETAIL MODAL ==================== -->
+  <div id="productModal" class="modal-overlay">
+    <div class="modal-content mecha-cut">
+      <button class="modal-close" onclick="closeProductModal()">✕</button>
+      <div id="productModalBody">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CHECKOUT MODAL ==================== -->
+  <div id="checkoutModal" class="modal-overlay">
+    <div class="modal-content mecha-cut" style="max-width: 800px;">
+      <button class="modal-close" onclick="closeCheckoutModal()">✕</button>
+      <h3 style="font-family: var(--font-mecha); color: #fff; margin-bottom: 20px;">XÁC NHẬN ĐƠN HÀNG & THANH TOÁN</h3>
+      
+      <form id="checkoutForm">
+        <div class="checkout-grid">
+          <div>
+            <div class="form-group">
+              <label class="form-label">Họ và tên người nhận *</label>
+              <input type="text" name="fullName" class="form-control mecha-cut" required placeholder="Nguyễn Văn A" value="Lâm Hiếu" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Số điện thoại liên hệ *</label>
+              <input type="tel" name="phone" class="form-control mecha-cut" required placeholder="0901234567" value="0988776655" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Địa chỉ nhận hàng chi tiết *</label>
+              <input type="text" name="address" class="form-control mecha-cut" required placeholder="Số 123 Đường Cầu Giấy, Hà Nội" value="Tòa nhà Lâm Hiếu, Quận Cầu Giấy, Hà Nội" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Phương thức thanh toán:</label>
+              <div class="payment-methods">
+                <div class="payment-option active mecha-cut" onclick="selectPaymentMethod('qr_bank', this)">
+                  <span>🏦</span> Quét VietQR Ngân Hàng
+                </div>
+                <div class="payment-option mecha-cut" onclick="selectPaymentMethod('cod', this)">
+                  <span>💵</span> Thanh toán khi nhận (COD)
+                </div>
+                <div class="payment-option mecha-cut" onclick="selectPaymentMethod('momo', this)">
+                  <span>📱</span> Ví Điện Tử MoMo
+                </div>
+                <div class="payment-option mecha-cut" onclick="selectPaymentMethod('vnpay', this)">
+                  <span>💳</span> Cổng VNPay / Thẻ ATM
+                </div>
+              </div>
+            </div>
+
+            <!-- VietQR Box -->
+            <div id="qrBankBox" class="qr-box mecha-cut">
+              <div style="font-size: 0.85rem; color: #0c1017; font-weight: 700; margin-bottom: 6px;">QUÉT MÃ QR ĐỂ THANH TOÁN TỰ ĐỘNG:</div>
+              <img id="vietQRImg" src="" alt="VietQR" />
+              <div class="qr-text">Nội dung chuyển khoản: <span id="qrTransferContent" style="color: #ff0055;">MECHA 8932</span></div>
+            </div>
+          </div>
+
+          <!-- Order Summary Side -->
+          <div style="background: rgba(12,16,23,0.9); border: 1px solid rgba(0,240,255,0.2); padding: 18px; display: flex; flex-direction: column;">
+            <h4 style="font-family: var(--font-tech); color: var(--cyan); margin-bottom: 14px;">TÓM TẮT ĐƠN HÀNG</h4>
+            
+            <div class="cart-summary-row">
+              <span>Tạm tính:</span>
+              <span id="checkoutSubtotal">0₫</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Giảm giá:</span>
+              <span id="checkoutDiscount" style="color: var(--green);">0₫</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Vận chuyển:</span>
+              <span id="checkoutShipping">Miễn phí</span>
+            </div>
+
+            <div class="cart-total-row" style="margin-top: auto;">
+              <span>Tổng thanh toán:</span>
+              <strong id="checkoutTotal">0₫</strong>
+            </div>
+
+            <button type="submit" class="btn btn-primary mecha-cut" style="width: 100%; margin-top: 20px; justify-content: center;">
+              🚀 HOÀN TẤT ĐẶT HÀNG
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== ORDER SUCCESS MODAL ==================== -->
+  <div id="orderSuccessModal" class="modal-overlay">
+    <div class="modal-content mecha-cut" style="max-width: 600px;">
+      <div id="orderSuccessBody">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ORDER TRACKING MODAL ==================== -->
+  <div id="trackModal" class="modal-overlay">
+    <div class="modal-content mecha-cut" style="max-width: 550px;">
+      <button class="modal-close" onclick="document.getElementById('trackModal').classList.remove('active')">✕</button>
+      <h3 style="font-family: var(--font-mecha); color: #fff; margin-bottom: 14px;">TRA CỨU TIẾN ĐỘ ĐƠN HÀNG</h3>
+      <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 16px;">Nhập mã đơn hàng (VD: MEC-123456) để kiểm tra tình trạng giao hàng.</p>
+      
+      <div style="display: flex; gap: 10px;">
+        <input type="text" id="trackOrderInput" class="form-control mecha-cut" placeholder="Nhập mã đơn MEC-..." />
+        <button class="btn btn-primary mecha-cut" onclick="searchOrderTrack()">Tra Cứu</button>
+      </div>
+
+      <div id="trackResultBox"></div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST CONTAINER ==================== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- ==================== AUTH MODAL (LOGIN / REGISTER) ==================== -->
+  <div id="authModal" class="modal-overlay">
+    <div class="modal-content mecha-cut auth-modal-content">
+      <button class="modal-close" onclick="closeAuthModal()">✕</button>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button id="tabLogin" class="auth-tab active" onclick="switchAuthTab('login')">🔐 ĐĂNG NHẬP</button>
+        <button id="tabRegister" class="auth-tab" onclick="switchAuthTab('register')">🚀 ĐĂNG KÝ</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm" class="auth-form">
+        <div class="auth-hero">
+          <div class="auth-icon">⚡</div>
+          <h3 class="auth-title">CHÀO MỪNG TRỞ LẠI<br><span class="highlight">PHI CÔNG MECHA</span></h3>
+          <p class="auth-subtitle">Đăng nhập để xem lịch sử đơn hàng và điền thông tin nhanh khi mua hàng.</p>
+        </div>
+        <form id="loginFormEl" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label class="form-label">Tên đăng nhập / Email</label>
+            <input type="text" id="loginUsername" class="form-control mecha-cut" placeholder="Nhập username hoặc email..." required autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mật khẩu</label>
+            <div class="password-wrap">
+              <input type="password" id="loginPassword" class="form-control mecha-cut" placeholder="••••••••" required autocomplete="current-password" />
+              <button type="button" class="toggle-pw" onclick="togglePw('loginPassword', this)">👁</button>
+            </div>
+          </div>
+          <div id="loginError" class="auth-error" style="display:none;"></div>
+          <button type="submit" id="loginSubmitBtn" class="btn btn-primary mecha-cut" style="width:100%; justify-content:center; margin-top:8px;">
+            ⚡ ĐĂNG NHẬP
+          </button>
+        </form>
+        <div class="auth-switch">
+          Chưa có tài khoản? <button onclick="switchAuthTab('register')" class="auth-link">Đăng ký ngay →</button>
+        </div>
+        <div class="auth-demo">
+          <span>Demo:</span>
+          <button onclick="fillDemo('builder01','123456')" class="demo-chip">builder01 / 123456</button>
+          <button onclick="fillDemo('admin','admin123')" class="demo-chip">admin / admin123</button>
+        </div>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" class="auth-form" style="display:none;">
+        <div class="auth-hero">
+          <div class="auth-icon">🛡️</div>
+          <h3 class="auth-title">TẠO TÀI KHOẢN<br><span class="highlight">MECHA CORE</span></h3>
+          <p class="auth-subtitle">Đăng ký để theo dõi đơn hàng và tận hưởng ưu đãi dành cho thành viên.</p>
+        </div>
+        <form id="registerFormEl" onsubmit="handleRegister(event)">
+          <div class="register-grid">
+            <div class="form-group">
+              <label class="form-label">Tên đăng nhập *</label>
+              <input type="text" id="regUsername" class="form-control mecha-cut" placeholder="mechabuilder99" required autocomplete="username" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Họ và tên đầy đủ</label>
+              <input type="text" id="regFullName" class="form-control mecha-cut" placeholder="Nguyễn Văn A" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" id="regEmail" class="form-control mecha-cut" placeholder="you@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Số điện thoại</label>
+              <input type="tel" id="regPhone" class="form-control mecha-cut" placeholder="0901234567" autocomplete="tel" />
+            </div>
+            <div class="form-group" style="grid-column: 1/-1;">
+              <label class="form-label">Địa chỉ nhận hàng</label>
+              <input type="text" id="regAddress" class="form-control mecha-cut" placeholder="Số nhà, đường, quận, thành phố" autocomplete="street-address" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mật khẩu *</label>
+              <div class="password-wrap">
+                <input type="password" id="regPassword" class="form-control mecha-cut" placeholder="Tối thiểu 6 ký tự" required autocomplete="new-password" />
+                <button type="button" class="toggle-pw" onclick="togglePw('regPassword', this)">👁</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Xác nhận mật khẩu *</label>
+              <div class="password-wrap">
+                <input type="password" id="regPasswordConfirm" class="form-control mecha-cut" placeholder="Nhập lại mật khẩu" required autocomplete="new-password" />
+                <button type="button" class="toggle-pw" onclick="togglePw('regPasswordConfirm', this)">👁</button>
+              </div>
+            </div>
+          </div>
+          <div id="registerError" class="auth-error" style="display:none;"></div>
+          <button type="submit" id="registerSubmitBtn" class="btn btn-primary mecha-cut" style="width:100%; justify-content:center; margin-top:8px;">
+            🚀 TẠO TÀI KHOẢN
+          </button>
+        </form>
+        <div class="auth-switch">
+          Đã có tài khoản? <button onclick="switchAuthTab('login')" class="auth-link">Đăng nhập →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ACCOUNT DASHBOARD MODAL ==================== -->
+  <div id="accountModal" class="modal-overlay">
+    <div class="modal-content mecha-cut account-modal-content">
+      <button class="modal-close" onclick="closeAccountModal()">✕</button>
+      <h3 style="font-family:var(--font-mecha); color:#fff; margin-bottom:20px;">⚙️ TÀI KHOẢN CỦA TÔI</h3>
+
+      <!-- Profile Info -->
+      <div class="account-profile-card mecha-cut">
+        <img id="accAvatar" src="" alt="Avatar" class="acc-avatar" />
+        <div class="acc-info">
+          <div id="accFullName" class="acc-name"></div>
+          <div id="accUsername" class="acc-username"></div>
+          <div id="accEmail" class="acc-email"></div>
+          <div id="accPhone" class="acc-phone"></div>
+          <div id="accAddress" class="acc-address"></div>
+        </div>
+        <div id="accRoleBadge" class="acc-role"></div>
+      </div>
+
+      <!-- Orders Tab -->
+      <div style="margin-top:24px;">
+        <h4 style="font-family:var(--font-tech); color:var(--cyan); margin-bottom:12px; font-size:1rem;">📦 LỊCH SỬ ĐƠN HÀNG</h4>
+        <div id="accountOrdersList" class="account-orders-list">
+          <div class="acc-orders-loading">⏳ Đang tải đơn hàng...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="js/data.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
